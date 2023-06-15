@@ -540,9 +540,8 @@ class CPA(BaseModelClass):
             "cont_covars": self.cont_covars,
         }
 
-        json_dict = json.dumps(total_dict)
         with open(os.path.join(dir_path, "cpa_dict.json"), "w") as f:
-            f.write(json_dict, indent=4)
+            json.dump(total_dict, f, indent=4)
 
         if isinstance(self.epoch_history, dict):
             self.epoch_history = pd.DataFrame().from_dict(
